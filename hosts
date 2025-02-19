@@ -1,0 +1,2 @@
+[servers]
+UbuntuServer ansible_host=IP ansible_user=ubuntu ansible_ssh_private_key_file=/key/path/to/id_rsa

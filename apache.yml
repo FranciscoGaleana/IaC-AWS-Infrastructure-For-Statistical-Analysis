@@ -1,0 +1,30 @@
+- name: Install Apache on Ubuntu
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Update package list
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+
+    - name: Enable and ensure that Apache is running
+      ansible.builtin.systemd:
+        name: apache2
+        enabled: yes
+        state: started
+
+    - name: Open port 80 on the firewall
+      ansible.builtin.ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+
+    - name: Open port 443 on the firewall
+      ansible.builtin.ufw:
+        rule: allow
+        port: '443'
+        proto: tcp

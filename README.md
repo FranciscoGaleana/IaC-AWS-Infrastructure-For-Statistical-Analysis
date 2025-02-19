@@ -42,7 +42,6 @@ ssh-keygen -t rsa -b 2048
 ssh-keygen -p -m PEM -f C:/Users/'${YourUsername}'/.ssh/id_rsa
 ```
 
-Run the following command to generate the key:
 2. Set up your AWS credentials in the environment (e.g., AWS_Key, AWS_Secret, Region_AWS).
 3. Initialize the Terraform configuration by running:
 ```hcl
